@@ -29,4 +29,9 @@ if [ "$INSTALLSUDO" = "true" ] && ! which sudo; then
   check_and_install sudo
 fi
 
+if [ "$PASSWORDLESSSUDO" = "true" ]; then
+  echo "$_REMOTE_USER" ALL=\(root\) NOPASSWD:ALL > "/etc/sudoers.d/$_REMOTE_USER"
+fi
+
+
 clean_package_cache

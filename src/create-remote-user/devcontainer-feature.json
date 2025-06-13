@@ -1,7 +1,7 @@
 {
   "name": "Create Remote User",
   "id": "create-remote-user",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A to assert the configured remote user exists in the container",
   "licenseURL": "https://github.com/nils-geistmann/devcontainers-features/blob/main/LICENSE",
   "options": {
@@ -19,6 +19,11 @@
       "description": "Install sudo if it is not yet installed",
       "type": "boolean",
       "default": true
+    },
+    "passwordLessSudo": {
+      "description": "Configures sudo to allow the remote user to elevate permissions without password",
+      "type": "boolean",
+      "default": false
     }
   }
 }

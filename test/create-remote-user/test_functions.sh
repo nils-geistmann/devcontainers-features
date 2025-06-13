@@ -36,3 +36,15 @@ assert_password_is_set() {
     exit 1
   fi
 }
+
+assert_sudo_requires_password() {
+  if echo "$1" | sudo -S -l | grep NOPASSWD; then
+    exit 1
+  fi
+}
+
+assert_sudo_requires_no_password() {
+  if ! echo "$1" | sudo -S -l | grep NOPASSWD; then
+    exit 1
+  fi
+}
