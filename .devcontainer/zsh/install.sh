@@ -43,5 +43,12 @@ fi
 # set the theme
 upsert_config_option "^ZSH_THEME=.*$" "ZSH_THEME=\"$THEME\"" "$ZSH_RC_FILE"
 
+# set the default user
+if [ "$DEFAULTUSER" = "true" ]; then
+  upsert_config_option "^DEFAULT_USER=.*$" "DEFAULT_USER=\"$_REMOTE_USER\"" "$ZSH_RC_FILE"
+fi
+
 # configure the plugins
 upsert_config_option "^plugins=\\(.*\\)$" "plugins=($PLUGINS)" "$ZSH_RC_FILE"
+
+clean_package_cache

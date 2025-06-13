@@ -20,7 +20,7 @@
     "features": {
       "zsh": {
         "theme": "agnoster",
-        "defaultUser": "vscode"
+        "defaultUser": "true"
       }
     }
   },

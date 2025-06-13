@@ -37,8 +37,8 @@ assert_configured_theme_is() {
 }
 
 assert_configured_default_user_is() {
-  theme=$1
-  if ! grep -E -q "^DEFAULT_USER=\"$theme\"" ~/.zshrc; then
+  userName=$1
+  if ! grep -E -q "^DEFAULT_USER=\"$userName\"" ~/.zshrc; then
     exit 1
   fi
 }

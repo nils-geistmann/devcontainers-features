@@ -26,7 +26,8 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "./zsh": {
       "theme": "agnoster",
-      "plugins": "git docker"
+      "plugins": "git docker",
+      "defaultUser": "true"
     }
   },
   "remoteUser": "node",

@@ -44,8 +44,8 @@ fi
 upsert_config_option "^ZSH_THEME=.*$" "ZSH_THEME=\"$THEME\"" "$ZSH_RC_FILE"
 
 # set the default user
-if [[ -n "$DEFAULTUSER" ]]; then
-  upsert_config_option "^DEFAULT_USER=.*$" "DEFAULT_USER=\"$DEFAULTUSER\"" "$ZSH_RC_FILE"
+if [ "$DEFAULTUSER" = "true" ]; then
+  upsert_config_option "^DEFAULT_USER=.*$" "DEFAULT_USER=\"$_REMOTE_USER\"" "$ZSH_RC_FILE"
 fi
 
 # configure the plugins
