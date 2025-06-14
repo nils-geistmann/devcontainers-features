@@ -18,6 +18,7 @@ A to assert the configured remote user exists in the container
 | create | Create the user if it doesn't exist | boolean | true |
 | addToSudo | If the user is newly created, add it to group sudo (if it exists) | boolean | true |
 | installSudo | Install sudo if it is not yet installed | boolean | true |
+| passwordLessSudo | Configures sudo to allow the remote user to elevate permissions without password | boolean | false |
 
 ## OS Support
 
