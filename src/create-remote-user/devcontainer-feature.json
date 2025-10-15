@@ -1,8 +1,8 @@
 {
   "name": "Create Remote User",
   "id": "create-remote-user",
-  "version": "0.0.4",
-  "description": "A to assert the configured remote user exists in the container",
+  "version": "0.0.5",
+  "description": "A feature to assert the configured remote user exists in the container and optionally add them to additional groups",
   "licenseURL": "https://github.com/nils-geistmann/devcontainers-features/blob/main/LICENSE",
   "options": {
     "create": {
@@ -24,6 +24,11 @@
       "description": "Configures sudo to allow the remote user to elevate permissions without password",
       "type": "boolean",
       "default": false
+    },
+    "additionalGroups": {
+      "description": "Comma-separated list of additional groups to add the user to (e.g., 'audio,video,docker')",
+      "type": "string",
+      "default": ""
     }
   }
 }

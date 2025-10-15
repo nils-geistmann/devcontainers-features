@@ -33,5 +33,9 @@ if [ "$PASSWORDLESSSUDO" = "true" ]; then
   echo "$_REMOTE_USER" ALL=\(root\) NOPASSWD:ALL > "/etc/sudoers.d/$_REMOTE_USER"
 fi
 
+if [ -n "$ADDITIONALGROUPS" ]; then
+  echo "Adding user to additional groups: $ADDITIONALGROUPS"
+  add_user_to_groups "$_REMOTE_USER" "$ADDITIONALGROUPS"
+fi
 
 clean_package_cache

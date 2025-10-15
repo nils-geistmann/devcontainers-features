@@ -14,6 +14,39 @@ check_and_install() {
   done
 }
 
+# Adds user to specified groups if they exist
+add_user_to_groups() {
+  local user="$1"
+  local groups="$2"
+  
+  if [ -z "$groups" ]; then
+    return 0
+  fi
+  
+  # Convert comma-separated string to array
+  IFS=',' read -ra GROUP_ARRAY <<< "$groups"
+  
+  for group in "${GROUP_ARRAY[@]}"; do
+    # Trim whitespace
+    group=$(echo "$group" | xargs)
+    
+    if [ -n "$group" ]; then
+      # Check if group exists
+      if getent group "$group" >/dev/null 2>&1; then
+        # Check if user is already in the group
+        if ! id -nG "$user" | grep -qw "$group"; then
+          echo "Adding user $user to group $group"
+          usermod -a -G "$group" "$user"
+        else
+          echo "User $user is already in group $group"
+        fi
+      else
+        echo "Warning: Group $group does not exist, skipping"
+      fi
+    fi
+  done
+}
+
 # Cleans APT's cache to keep devcontainer layers small
 clean_package_cache() {
   apt-get clean
