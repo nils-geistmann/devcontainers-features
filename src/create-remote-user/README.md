@@ -1,7 +1,7 @@
 
 # Create Remote User (create-remote-user)
 
-A to assert the configured remote user exists in the container
+A feature to assert the configured remote user exists in the container and optionally add them to additional groups
 
 ## Example Usage
 
@@ -19,6 +19,7 @@ A to assert the configured remote user exists in the container
 | addToSudo | If the user is newly created, add it to group sudo (if it exists) | boolean | true |
 | installSudo | Install sudo if it is not yet installed | boolean | true |
 | passwordLessSudo | Configures sudo to allow the remote user to elevate permissions without password | boolean | false |
+| additionalGroups | Comma-separated list of additional groups to add the user to (e.g., 'audio,video,docker') | string | - |
 
 ## OS Support
 
