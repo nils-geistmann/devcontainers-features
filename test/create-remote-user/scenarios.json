@@ -24,5 +24,14 @@
       }
     },
     "remoteUser": "remote"
+  },
+  "with_additional_groups": {
+    "image": "debian:bookworm-slim",
+    "features": {
+      "create-remote-user": {
+        "additionalGroups": "audio,video,plugdev"
+      }
+    },
+    "remoteUser": "remote"
   }
 }
