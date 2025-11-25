@@ -23,7 +23,7 @@ if [ "$_REMOTE_USER" = "root" ]; then
   USER_LOCATION="/root"
 else
   #install OhMyZsh as the $_REMOTE_USER
-  su - "$_REMOTE_USER" -c "sh -c $(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
+  su --whitelist-environment="http_proxy,https_proxy,no_proxy,HTTP_PROXY,HTTPS_PROXY,NO_PROXY" - "$_REMOTE_USER" -c "sh -c $(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || true
   USER_LOCATION="/home/$_REMOTE_USER"
 fi
 
